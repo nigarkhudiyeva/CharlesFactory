@@ -54,6 +54,29 @@ public class Product {
     public String toString() {
         return  "Product description: " + description + ", barcode: " + barcode + ", serialNumber: " + serialNumber + ", prizeTicket: " + prizeTicket;
     }
+    
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.serialNumber);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Product other = (Product) obj;
+        return Objects.equals(this.serialNumber, other.serialNumber);
+    }
+
 
     
 }

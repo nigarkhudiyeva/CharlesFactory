@@ -31,6 +31,31 @@ public abstract class Being{
     public String toString() {
         return "Being name: " + name + ", code: " + code;
     }
+    
+     @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 29 * hash + this.code;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Being other = (Being) obj;
+        if (this.code != other.code) {
+            return false;
+        }
+        return true;
+    }
 
    
     
